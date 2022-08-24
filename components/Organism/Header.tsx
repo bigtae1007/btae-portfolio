@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Logo from "../atom/Logo";
 import NaviBar from "../Molecule/NaviBar";
 
 export default function Header() {
+  const [scrollState, setScrollState] = useState(false);
+
+  const scrollTop = () => {
+    setScrollState(true);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollTop);
+    return () => {
+      window.removeEventListener("scroll", scrollTop);
+    };
+  }, []);
   return (
-    <WrapHeader>
+    <WrapHeader state={scrollState}>
       <div>
         <Logo />
         <NaviBar />
@@ -14,10 +26,13 @@ export default function Header() {
   );
 }
 
-const WrapHeader = styled.div`
+const WrapHeader = styled.div<{ state: boolean }>`
+  position: fixed;
+  top: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
-  border-bottom: 1px solid #000;
+  background-color: ${({ state }) => (state ? "white" : "transparent")};
   > div {
     display: flex;
     justify-content: space-between;
