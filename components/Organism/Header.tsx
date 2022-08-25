@@ -32,6 +32,7 @@ const WrapHeader = styled.div<{ state: boolean }>`
   width: 100%;
   display: flex;
   justify-content: center;
+  z-index: 99;
   background-color: ${({ state }) => (state ? "white" : "transparent")};
   > div {
     display: flex;
