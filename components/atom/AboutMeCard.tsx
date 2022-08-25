@@ -13,12 +13,12 @@ interface card {
 export default function AboutMeCard(props: card) {
   const newTapLink = (e: React.MouseEvent<HTMLElement>) => {
     const eventTarget = e.target as HTMLElement;
-    window.open(eventTarget.innerText);
+    window.open(props.linkUrl);
   };
 
   return (
     <WrapCard>
-      <img src={props.url} alt="아이콘" width={50} height={50} />
+      <img src={props.url} alt="아이콘" width={50} height={40} />
       <div>
         <h3>{props.head}</h3>
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { AboutMe } from "../Molecule/AboutMe";
+import { AboutMe } from "../Organism/AboutMe";
 import Header from "../Organism/Header";
 import Intro from "../Organism/Intro";
 
